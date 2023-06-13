@@ -128,19 +128,27 @@
         for (let i = 0; i < box.length; i++) { 
             reset.onclick =()=>{
                 window.location.reload()} 
+                let pervious = ""
             box[i].onclick = () => {
                 let number = Number(box[i].id)           
                 if(values.includes(number)) {
                     for(let num=0;num<10;num++){
-                    box[values[num]-1].style=" background-color: red;background-image: url(bomb.jpeg);background-blend-mode: darken;";
-                    over.innerHTML ="<h1>Tai Tai Phis</h1>"    
+                        box[values[num]-1].style=" background-color: red;background-image: url(bomb.jpeg);background-blend-mode: darken;";
+                        over.innerHTML ="<h1>Tai Tai Phis</h1>"    
                     }
+                    
+                }
                 
-            }
+                else if(pervious === box[i].id){
+                    score.innerHTML = parseInt(score.innerHTML)
+                }
+                
                 else {
                     box[i].style.background = "green";
                     score.innerHTML = parseInt(score.innerHTML) + 1;
-                }}}
+                    pervious = box[i].id
+                }
+            }}
     </script>
 </body>
 
